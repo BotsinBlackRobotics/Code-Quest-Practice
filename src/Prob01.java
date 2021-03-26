@@ -19,20 +19,38 @@ public class Prob01
             String inLine = null;
             
             // get the number of test cases
-            int T = Integer.parseInt(br.readLine());
-            
+
+            // TODO: HOW SHOULD WE KNOW NUMBER OF TEST CASES ON THESE TYPES OF PROBLEMS
+            //int T = Integer.parseInt(br.readLine());
+            int T = 10;
+
+            // Fizz buzz words
+            String code = "CODE";
+            String quest = "QUEST";
+
+            int line;
+
             // loop through test cases
             for (int i = 0; i < T; i++) {
-                // get the number of lines in each test case
-                int N = Integer.parseInt(br.readLine());
-                
-                // loop through the lines
-                for (int j=0; j<N; j++) {
-                    // read the line of text to get the test data
-                    inLine = br.readLine();
-                    
-                    System.out.println(inLine);
+                // read the line of text to get the test data
+                inLine = br.readLine();
+                line = Integer.parseInt(inLine);
+                StringBuilder out = new StringBuilder();
+
+                if ((line % 3) == 0) {
+                    out.append(code);
                 }
+                if ((line % 7) == 0) {
+                    out.append(quest);
+                }
+
+                // TODO: figure out why number will not appear
+                if (out.equals("")) {
+                    out.append(inLine);
+                }
+
+
+                System.out.println(out);
             }
             
             // clean up
