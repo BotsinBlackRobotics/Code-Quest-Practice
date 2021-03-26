@@ -30,18 +30,20 @@ public class Prob01
 
             int line;
 
-            // loop through test cases
-            for (int i = 0; i < T; i++) {
-                // read the line of text to get the test data
-                inLine = br.readLine();
+            // read the line of text to get the test data
+            inLine = br.readLine();
+            while (inLine != null) {
                 line = Integer.parseInt(inLine);
                 StringBuilder out = new StringBuilder();
 
-                if ((line % 3) == 0) {
+                if ((line % 3 == 0) && (line % 7 == 0)) {
+                    out.append(code + quest);
+                } else if ((line % 7) == 0) {
                     out.append(code);
-                }
-                if ((line % 7) == 0) {
+                } else if ((line % 3) == 0) {
                     out.append(quest);
+                } else {
+                    out.append(line);
                 }
 
                 // TODO: figure out why number will not appear
@@ -51,8 +53,9 @@ public class Prob01
 
 
                 System.out.println(out);
+                inLine = br.readLine();
             }
-            
+
             // clean up
             br.close();
             fr.close();
